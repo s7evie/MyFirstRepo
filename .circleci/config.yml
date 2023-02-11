@@ -5,23 +5,17 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  print-hello:
+  print-name:
     docker:
       - image: cimg/node:19.6.0
+    environment: 
+    my_name: Stevie Miller
     steps:
-      - run: echo Hello
-
-  print-world:
-    docker:
-      - image: cimg/node:19.6.0
-    steps:
-      - run: echo World!
+      - run: echo $my_name
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-      - print-hello
-      - print-world:
-          requires: [print-hello]
+      - print-name
