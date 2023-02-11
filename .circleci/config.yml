@@ -9,7 +9,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo Helo World! > output.txt
+      run: echo "Helo World!" > ~/output.txt
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
