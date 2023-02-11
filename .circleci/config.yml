@@ -11,7 +11,9 @@ jobs:
     environment: 
       my_name: Stevie Miller
     steps:
-      - run: echo $my_name $abcd
+      #- run: echo $my_name $abcd
+    command: echo $my_name $abcd
+
 #ABCD variable defined in circleCI project env variables.
 
 # Invoke jobs via workflows
