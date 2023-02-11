@@ -4,11 +4,11 @@ commands:
   print_pipeline_id:
     description: "Prints the ID of the pipeline that is currently running"
     parameters:
-      to:
+      id:
         type: string
         default: "No pipeline parsed"
     steps:
-      - run: echo << parameters.to >>
+      - run: echo << parameters.id >>
 
 jobs:
   test-command:
@@ -16,7 +16,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id:
-          to: $CIRCLE_WORKFLOW_ID 
+          id: $CIRCLE_WORKFLOW_ID 
 
 workflows:
   my_workflow:
