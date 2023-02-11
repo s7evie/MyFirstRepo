@@ -9,7 +9,7 @@ jobs:
     docker:
       - image: cimg/node:19.6.0
     environment: 
-    my_name: Stevie Miller
+    my_name: "Stevie Miller"
     steps:
       - run: echo $my_name
 
