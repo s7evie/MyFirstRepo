@@ -7,13 +7,13 @@ version: 2.1
 jobs:
   print-hello:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/node:19.6.0
     steps:
       - run: echo Hello
 
   print-world:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/node:19.6.0
     steps:
       - run: echo World!
 
