@@ -11,8 +11,8 @@ jobs:
     environment: 
       my_name: Stevie Miller
     steps:
+      command: echo $my_name
       #- run: echo $my_name $abcd
-    command: echo $my_name $abcd
 
 #ABCD variable defined in circleCI project env variables.
 
