@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      command: return 1
+      run: exit 1
 
 workflows:
   my_workflow:
