@@ -1,28 +1,24 @@
 version: 2.1
 
-jobs:
-  save_hello_world_output:
-    docker:
-      - image: circleci/node:13.8.0
+commands:
+  print_pipeline_id:
+    description: "Prints the ID of the pipeline that is currently running"
+    parameters:
+      to:
+        type: string
+        default: "No pipeline parsed"
     steps:
-      - run: echo "hello world" > ~/output.txt
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - output.txt
+      - run: echo << parameters.to >>
 
-  print_output_file:
+jobs:
+  test-command:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - attach_workspace:
-          at: ~/
-      - run: cat ~/output.txt
+      - print_pipeline_id:
+          to: $CIRCLE_WORKFLOW_ID 
 
 workflows:
   my_workflow:
     jobs:
-      - save_hello_world_output
-      - print_output_file:
-          requires:
-            - save_hello_world_output
+      - test-command
