@@ -1,24 +1,13 @@
 version: 2.1
 
-commands:
-  print_pipeline_id:
-    description: "Prints the ID of the pipeline that is currently running"
-    parameters:
-      id:
-        type: string
-        default: "No pipeline parsed"
-    steps:
-      - run: echo << parameters.id >>
-
 jobs:
-  test-command:
+  test-fail:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - print_pipeline_id:
-          id: $CIRCLE_WORKFLOW_ID 
+      run: return 1
 
 workflows:
   my_workflow:
     jobs:
-      - test-command
+      - test-fail
