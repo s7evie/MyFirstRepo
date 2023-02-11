@@ -7,7 +7,7 @@ version: 2.1
 jobs:
   print-me:
     docker:
-      - image: cimg/node:19.6.0
+      - image: cimg/base:2022.01
     environment: 
       my_name: Stevie Miller
     steps:
