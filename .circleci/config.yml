@@ -9,14 +9,11 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - checkout
-      - run:
-          state: "Hello World"
-          command: echo $state
+      - run: echo Helo World! > output.txt
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  persist-workflow:
+  say-hello-workflow:
     jobs:
       - print-hello
