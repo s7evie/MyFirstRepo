@@ -11,11 +11,12 @@ jobs:
     steps:
       - checkout
       - run:
-        echo "Hello, World!" > output.txt
-          
+          name: "Say hello"
+          command: echo $name | output.txt
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  persist-workflow:
     jobs:
       - print-hello
